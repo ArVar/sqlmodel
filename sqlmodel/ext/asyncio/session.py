@@ -1,4 +1,4 @@
-from typing import Any, Mapping, Optional, Sequence, TypeVar, Union
+from typing import Any, Mapping, Optional, Sequence, TypeVar, Union, Tuple
 
 from sqlalchemy import util
 from sqlalchemy.ext.asyncio import AsyncSession as _AsyncSession
@@ -11,7 +11,7 @@ from ...engine.result import ScalarResult
 from ...orm.session import Session
 from ...sql.expression import Select
 
-_T = TypeVar("_T")
+_T = TypeVar("_T", bound=Tuple[Any, ...])
 
 
 class AsyncSession(_AsyncSession):

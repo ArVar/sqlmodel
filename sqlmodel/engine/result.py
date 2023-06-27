@@ -1,9 +1,9 @@
-from typing import Generic, Iterator, List, Optional, Sequence, TypeVar
+from typing import Any, Generic, Iterator, List, Optional, Sequence, TypeVar, Tuple
 
 from sqlalchemy.engine.result import Result as _Result
 from sqlalchemy.engine.result import ScalarResult as _ScalarResult
 
-_T = TypeVar("_T")
+_T = TypeVar("_T", bound=Tuple[Any, ...])
 
 
 class ScalarResult(_ScalarResult[_T], Generic[_T]):

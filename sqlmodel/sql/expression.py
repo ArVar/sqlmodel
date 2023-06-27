@@ -20,7 +20,7 @@ from sqlalchemy.orm import InstrumentedAttribute
 from sqlalchemy.sql.elements import ColumnClause
 from sqlalchemy.sql.expression import Select as _Select
 
-_TSelect = TypeVar("_TSelect")
+_TSelect = TypeVar("_TSelect", bound=Tuple[Any, ...])
 
 
 class Select(_Select[_TSelect], Generic[_TSelect]):

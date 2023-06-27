@@ -1,4 +1,4 @@
-from typing import Any, Mapping, Optional, Sequence, Type, TypeVar, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Type, TypeVar, Union, overload, Tuple
 
 from sqlalchemy import util
 from sqlalchemy.orm import Query as _Query
@@ -10,7 +10,7 @@ from typing_extensions import Literal
 from ..engine.result import Result, ScalarResult
 from ..sql.base import Executable
 
-_TSelectParam = TypeVar("_TSelectParam")
+_TSelectParam = TypeVar("_TSelectParam", bound=Tuple[Any, ...])
 
 
 class Session(_Session):
