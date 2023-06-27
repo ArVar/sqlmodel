@@ -325,6 +325,7 @@ class SQLModelMetaclass(ModelMetaclass, DeclarativeMeta):
                 break
         if getattr(cls.__config__, "table", False) and not base_is_table:
             dict_used = dict_.copy()
+            cls.update_forward_refs()
             for field_name, field_value in cls.__fields__.items():
                 dict_used[field_name] = get_column_from_field(field_value)
             for rel_name, rel_info in cls.__sqlmodel_relationships__.items():
